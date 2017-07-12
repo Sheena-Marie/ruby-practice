@@ -1,7 +1,15 @@
 # classes use camel case
 # EVERYTHING IN RUBY IS AN OBJECT!!!!
 
+module Destructable # modules are nambed with an 'able ending'
+  def destroy(anyobject)
+    puts 'I will destroy the object'
+  end
+end
+
 class User
+
+  include Destructable
 
   attr_accessor :name, :email
 
@@ -13,23 +21,42 @@ class User
   def run
     puts 'Hey, I\'m running!'
   end
+
+  def self.identify_yourself
+    puts 'Hey, I\'m a class method'
+  end
+end
+
+class Buyer < User
+  def run
+    puts 'Hey, I\'m not running and I\'m in Buyer class!'
+  end
+end
+
+class Seller < User
+end
+
+class Admin < User
 end
 
 user = User.new('Sheena', 'sheena@email.com')
-# user1 = User.new('John')
-# user2 = User.new('Kevin')
-#
-# puts user
-# puts user1
-# puts user2
-#
-# user.run
-# user2.run
-# user1.run
-#
-# puts user.get_name
 
 puts "#{user.name} #{user.email}"
 user.name = 'Bob'
 user.email = 'bob@email.com'
 puts "The user's name is #{user.name} and the email is #{user.email}"
+
+buyer1 = Buyer.new('John Doe', 'johndoe@email.com')
+buyer1.run
+
+seller1 = Seller.new('Seller Doe', 'seller@email.com')
+seller1.run
+admin1 = Admin.new('Admin Bob', 'admin@email.com')
+admin1.run
+
+puts Buyer.ancestors
+
+User.identify_yourself
+
+user = User.new('Peter', 'Peter@email.com')
+user.destroy('myname')
