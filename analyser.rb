@@ -25,3 +25,14 @@ second_number = gets.chomp.to_f
 
 puts "The result of #{first_number.to_i} x #{second_number.to_i} is: "
 puts "#{first_number * second_number}"
+
+# add in first_number divided by second_number. first_number - second_number. first_number mod of second_number is:
+
+puts "The result of #{first_number.to_i} divided by #{second_number.to_i} is: "
+puts "#{first_number / second_number}"
+
+puts "The result of #{first_number.to_i} - #{second_number.to_i} is: "
+puts "#{first_number - second_number}"
+
+puts "The mod of #{first_number.to_i} and #{second_number.to_i} is: "
+puts "#{first_number % second_number}"
