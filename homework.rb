@@ -35,25 +35,30 @@ end
 # looping until the user says "no"
 loop do
 
+  # checking to see if they want to look up a city name
   puts 'Do you want to look up a city name (Y/N)?'
   answer = gets.chomp.capitalize
 
+  # breaking the loop if the user opts out
   if answer != 'Y'
     puts 'Goodbye!'
     break
+
+  # if the user doesn't opt out, continue with the loop.
   else
+
     puts "Which city would you like to look up?"
     get_city_names(dial_book)
 
     puts 'Enter your selection'
     response = gets.chomp.capitalize
 
+    # if the response is included in the dial book, then print out the area code. If it doesn't, go back to the top of the loop.
     if dial_book.include?response
       puts "The area code for #{response} is #{get_area_code(dial_book, response)}"
     else
       puts 'You entered a city name not in the dictionary'
     end
-
 
   end
 end
