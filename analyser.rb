@@ -45,6 +45,7 @@ def mod(first_number, second_number)
   first_number % second_number
 end
 
+# user chooses an option
 puts "What do you want to do?"
 puts "1 - mulitply"
 puts "2 - divide"
@@ -75,7 +76,7 @@ elsif option == 4
   puts "The remainder of #{first_number.to_i} and #{second_number.to_i} is:"
 
   result = mod(first_number, second_number)
-  
+
 else
   puts "Incorrect option. Please choose again"
 end
